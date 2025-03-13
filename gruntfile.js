@@ -87,7 +87,7 @@ module.exports = (grunt) => {
                 expand: true,
                 cwd: 'src/',
                 src: '*.html',
-                dest: 'dev/'
+                dest: 'dist/'
             },
             html_dist: {
                 expand: true,
