@@ -70,7 +70,7 @@ module.exports = (grunt) => {
                     {
                         expand: true,
                         flatten: true,
-                        src: ['src/index.html'],
+                        src: ['src/*.html'],
                         dest: 'dist/',
                     },
                 ],
@@ -81,13 +81,19 @@ module.exports = (grunt) => {
                 expand: true,
                 cwd: 'src/',
                 src: 'images/**/*',
-                dest: 'dev/' 
+                dest: 'dist/'
             },
             html: {
                 expand: true,
                 cwd: 'src/',
                 src: '*.html',
                 dest: 'dev/'
+            },
+            html_dist: {
+                expand: true,
+                cwd: 'src/',
+                src: '*.html',
+                dest: 'dist/'
             }
         },
         htmlmin: {
@@ -121,5 +127,5 @@ grunt.loadNpmTasks('grunt-contrib-copy');
 
 grunt.registerTask("default", ['copy:images', 'copy:html', 'replace:dev', "watch"]);
 
-grunt.registerTask("build", ["less:production", "htmlmin:dist", "replace:dist", "clean", "uglify"])
+grunt.registerTask("build", ["copy:html_dist","less:production", "htmlmin:dist", "replace:dist", "clean", "uglify"])
 };
