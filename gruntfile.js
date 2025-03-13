@@ -40,7 +40,7 @@ module.exports = (grunt) => {
                         },
                         {
                             match: /(src|href)="images\//g,
-                            replacement: '$1="../src/images/'
+                            replacement: '$1="images/'
                         }
                     ],
                 },
